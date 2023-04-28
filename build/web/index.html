@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- icon library -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+ 
+            <style>
+            html,body {
+                margin:0;
+                padding:0;
+                overflow-x:hidden;
+                font-family: 'Trebuchet MS', sans-serif;
+            }
+
+         
+
+            /*
+            ===========================================================================
+                  CSS design for Menu Bar, slideshow container and booking form
+            ===========================================================================
+            */
+
+            /* individual Slide container */
+            .mySlides {
+                display: none;
+                background-size:  100% 100%;
+                 -webkit-box-shadow: inset 0px 680px 680px -550px white;  
+                -moz-box-shadow: inset 0px 680px 680px -550px white; 
+                -o-box-shadow:inset 0px 680px 680px -550px white;
+                box-shadow:inset 0px 680px 680px -550px white;
+                height: 520px;
+            }
+
+            /* Slideshow container */
+            .slideshow-container {
+                max-width: 100%;
+                position: relative;
+
+
+            }
+
+            /* menu container */
+            .div1{
+                position:relative;
+                width:100%;
+                margin-top: 18px;
+
+                
+            }
+             /* lower menu division container */
+            .lower-menu {
+                width: 100%;
+                box-sizing: border-box; // includes padding and border to overall width and height
+         
+            }
+            
+            .lower-menu ul{
+                 list-style-type: none; 
+                 margin-left: -170px;  
+                 padding: 0; 
+                 overflow: hidden;   
+            }
+
+                    /* upper menu division container */
+            .upper-menu {
+                height: 30px;
+                width: 100%;
+                text-align: center;
+                box-sizing: border-box; 
+                display: block;
+                text-decoration: none;
+                padding: 0px 46px;
+            }
+            
+            /* image for menu */
+            .menu-image{
+                border-width:0px;
+                float:right; 
+                width:18px;
+                height: 18px
+            }
+         /* text within a tag */
+            .span-menu{
+                float:right;
+                margin-right: 40px; 
+                margin-left: 10px;
+                color: black;
+            }
+
+  
+            .li-menu a {
+                display: block;
+                color: black;
+                text-align: center;
+                padding: 1px 36px;
+                text-decoration: none;
+                height: 40px
+                
+            }
+
+            .li-menu a:hover {
+                background-color: darkblue;
+                color: white
+            }
+
+           
+            /* menu dropdown container */
+            nav{
+                position: absolute;
+                margin-left: 87.5%;
+                margin-top: -2%;
+            }
+            
+         /* design for first li inside nav */
+           .hov{
+                position:relative;
+                height: 40px;
+                width:112px;
+                background: transparent;
+                color: black;
+                font-size: 18px;
+                font-weight:bold;
+                text-align: center;
+                list-style:none;
+                z-index:2;
+               
+
+            }
+            .nav-image {
+                border-width:0px;
+                position: absolute;
+                width: 15%;
+                height: 15px;
+                margin: 4% 2%;
+            }
+            
+            ul,li{
+                margin: 0;
+                padding: 0;
+            }
+            
+              /* design for first list inside list element inside nav */
+            .main{
+                position:absolute;
+                z-index:1;
+
+            }
+            .main li{
+                list-style:none;
+                background: black;
+                opacity: 0.6;
+                color:white;
+                width:150px;
+                padding: 0 5px;
+                height: 30px;
+                line-height: 30px;
+                -webkit-transition: all .5s ease-in-out; // slow transition motion
+
+            }
+            
+             .main li a{
+                text-decoration:none;
+                color:white;
+                font-size: small;
+                width:100px;
+                padding: 0 5px;
+            }
+
+            .main li:nth-child(odd){
+                -webkit-transform-origin: top;
+                -webkit-transform: perspective(350px) rotateX(-90deg);// 90deg makes li disappear
+            }
+
+            .main li:nth-child(even){
+                margin-top:-65px;
+                -webkit-transform-origin: bottom;
+                -webkit-transform: perspective(350px) rotateX(90deg); // 90deg makes li disappear
+            }
+
+
+       /* design for rotation degree when hover over it*/
+            .hov:hover li:nth-child(odd){
+                -webkit-transform-origin: top;
+                -webkit-transform: perspective(350px) rotateX(0deg);
+                margin-top:0;
+            }
+
+            .hov:hover li:nth-child(even){
+                -webkit-transform-origin: bottom;
+                -webkit-transform: perspective(350px) rotateX(0deg);
+                margin-top:0;
+            }
+
+            .main li:first-child{
+                margin-top:0;
+            }
+
+       
+               /* design for window size change */
+              @media only screen and (max-width: 700px) {
+                 .upper-menu {
+                     padding: 0px 16px;
+                      }
+                      .li-menu a{
+                          padding: 0px 16px;
+                      }
+                      .lower-menu ul{
+                          margin-left: -80px;
+                      }
+                      
+                      nav{
+                           margin-left: 77.5%;
+                           margin-top: 12%;
+                      }
+                     }
+
+            /* booking form container */
+            .booking-box {
+                position: absolute;
+                margin-top: 20%;
+                margin-left: 24%;
+                width: 400px;
+                padding: 40px;
+                transform: translate(-50%, -50%);
+                background: black;
+                box-sizing: border-box;
+                box-shadow: 0 15px 25px rgba(0,0,0,.6);
+                border-radius: 10px;
+                opacity:0.77;
+                
+            }
+
+            .booking-box h2 {
+                margin: 0 0 30px;
+                padding: 0;
+                color: #fff;
+                text-align: center;
+            }
+
+               /* design for div inside form in booking box */
+             .user-box {
+                position: relative;
+            }
+
+            .booking-box .user-box input {
+                width: 100%;
+                padding: 10px 0;
+                font-size: 16px;
+                color: #fff;
+                margin-bottom: 30px;
+                border: none;
+                border-bottom: 1px solid #fff;
+                outline: none;
+                background: transparent;
+            }
+            .booking-box .user-box label {
+               position: absolute;
+                top:-20px;
+                left: 0;
+                padding: 10px 0px;
+                font-size: 14px;
+                color: #03e9f4;
+                pointer-events: none; /*if the element reacts to the mause*/
+            }
+
+    
+            .booking-box form a {
+                position: relative;
+                display: inline-block;
+                padding: 10px 20px;
+                color: #03e9f4;
+                font-size: 16px;
+                text-decoration: none;
+                text-transform: uppercase;
+                overflow: hidden;
+                transition: .5s;
+                margin-top: 22px;
+                letter-spacing: 4px
+            }
+
+            .booking-box a:hover {
+                background: #03e9f4;
+                color: #fff;
+                border-radius: 5px;
+                box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4, 0 0 100px #03e9f4; /*number of different shadows*/
+            }
+
+           /* design for span inside a tag */
+            .booking-box a span {
+                position: absolute;
+                display: block;
+            }
+
+             /* design for upper span inside a tag */
+            .booking-box a span:nth-child(1) {
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 2px;
+                background: linear-gradient(90deg, transparent, #03e9f4);
+                animation: btn-anim1 1s linear infinite;
+            }
+
+             /* how the animation takes affect */
+            @keyframes btn-anim1 {
+                0% {
+                    left: -100%;
+                }
+                50%,100% {
+                    left: 100%;
+                }
+            }
+
+                /* design for right span inside a tag */
+            .booking-box a span:nth-child(2) {
+                top: -100%;
+                right: 0;
+                width: 2px;
+                height: 100%;
+                background: linear-gradient(180deg, transparent, #03e9f4);
+                animation: btn-anim2 1s linear infinite;
+                animation-delay: .25s
+            }
+
+            @keyframes btn-anim2 {
+                0% {
+                    top: -100%;
+                }
+                50%,100% {
+                    top: 100%;
+                }
+            }
+
+              /* design for left span inside a tag */
+            .booking-box a span:nth-child(3) {
+                bottom: 0;
+                right: -100%;
+                width: 100%;
+                height: 2px;
+                background: linear-gradient(270deg, transparent, #03e9f4); 
+                animation: btn-anim3 1s linear infinite;
+                animation-delay: .5s
+            }
+
+            @keyframes btn-anim3 {
+                0% {
+                    right: -100%;
+                }
+                50%,100% {
+                    right: 100%;
+                }
+            }
+
+                /* design for bottom span inside a tag */
+            .booking-box a span:nth-child(4) {
+                bottom: -100%;
+                left: 0;
+                width: 2px;
+                height: 100%;
+                background: linear-gradient(360deg, transparent, #03e9f4);
+                animation: btn-anim4 1s linear infinite;
+                animation-delay: .75s
+            }
+
+            @keyframes btn-anim4 {
+                0% {
+                    bottom: -100%;
+                }
+                50%,100% {
+                    bottom: 100%;
+                }
+            }
+               
+            /* design for second and third slider text */
+            .slide2-text{
+                position: absolute;
+                margin-top: 23%;
+                margin-left: 50%;
+                width: 100%;
+                padding: 40px;
+                transform: translate(-50%, -50%);
+                box-sizing: border-box;
+            }
+            
+              .slide2-text h1 {
+                margin: 0 0 25px;
+                padding: 0;
+                text-align: center;
+            }
+
+            /* The dots/bullets below the */
+            .dot {
+                height: 15px;
+                width: 15px;
+                margin: 0 2px;
+                background-color: grey;
+                border-radius: 50%;
+                display: inline-block;
+                transition: background-color 0.6s ease;
+            }
+
+            .active {
+                background-color: blue;
+            }
+
+            /* Fading animation */
+            .fade {
+                -webkit-animation-name: fade; /*-webkit is a term for rendering engine of some browsers to show the effect to users*/
+                -webkit-animation-duration: 1.5s;
+                animation-name: fade;
+                animation-duration: 1.5s;
+            }
+
+            @-webkit-keyframes fade { /*The @keyframes rule specifies the animation code.*/
+                from {opacity: .4} 
+                to {opacity: 1}
+            }
+
+            @keyframes fade { /*The @keyframes rule specifies the animation code.*/
+                from {opacity: .4} 
+                to {opacity: 1}
+            }
+
+
+            /*
+            ===========================================================================
+                              CSS design for offers container
+            ===========================================================================
+            */
+            .offer-container{
+                height:55vh;
+                margin:2% 1%; 
+                width: 45%; 
+                box-sizing: border-box; 
+                background-size: 100% 100%; 
+                position: relative;
+            }
+            
+            .offer-h{
+                color: white;
+                margin: 64% 13% 0%;
+                 font-size: 25px;
+            }
+
+            .offer-p{
+                margin: 0% 13% 5%;
+                color: white;
+                 font-size: 17px;
+            }
+            
+            .offer-button{
+                border-radius: 50px;
+                color: white;
+                border: none;
+                background-color: blue;
+                height:5vh;
+                width: 10vw;
+                margin: 0% 13% 0%
+            }
+            
+          @media only screen and (max-width: 700px) {
+               .offer-button{
+                    width: 15vw;
+               }
+               offer-h{
+                    margin: 10% 13% 0%;
+               }
+                     }  
+                     
+                 @media only screen and ( max-height: 900px ) {
+               .offer-button{
+                    width: 15vw;
+               }
+               offer-h{
+                    margin: 0% 13% 0%;
+               }
+                     }
+            /*
+            ===========================================================================
+                  CSS design for newsletter container 
+            ===========================================================================
+            */
+            .card-container {
+                padding: 0 10vw;
+                display: flex;
+                overflow-x: auto;
+                scroll-behavior: smooth; /* to smoothly animate the scroll position*/
+                margin-top: 5%; 
+            }
+
+            .card-container::-webkit-scrollbar {
+                display: none; /* to remove the scroll bar*/
+            }
+            /* news container */
+            .news-container {
+                position: relative;
+                overflow: hidden;
+                padding: 10px;
+                box-sizing: border-box;
+                background-size: 100% 100%;
+                background-image: linear-gradient( rgba(245, 246, 252, 0.52), rgba(255, 255, 255, 255)),
+                    url('images\\floral.jpg');
+                -webkit-box-shadow: inset 0px 600px 500px -500px #fff;  
+                -moz-box-shadow: inset 0px 600px 500px -500px #fff; 
+                -o-box-shadow:inset 0px 600px 500px -500px #fff;
+                box-shadow:inset 0px 600px 500px -500px #fff;
+            }
+
+
+
+            .pre-btn,
+            .nxt-btn {
+                border: none;
+                width: 10vw;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, white 100%);
+                cursor: pointer;
+                z-index: 8;
+            }
+
+            .pre-btn {
+                left: 0;
+                transform: rotate(180deg);
+            }
+
+            .nxt-btn {
+                right: 0;
+            }
+
+            .pre-btn img,
+            .nxt-btn img {
+                opacity: 0.7;
+                width:30%
+            }
+
+            .pre-btn:hover img,
+            .nxt-btn:hover img {
+                opacity: 1;
+            }
+
+            .card {
+                flex: 0 0 auto;
+                width: 30%;
+                height: 450px;
+                margin-right: 40px;
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                transition: 0.3s;
+                border-radius: 5px;
+                margin-bottom: 1%;
+                font-size: 15px;
+                
+            }
+
+            .card-image {
+                position: relative;
+                width: 100%;
+                height: 220px;
+                overflow: hidden;
+                border-radius: 5px 5px 0 0;
+            }
+            .card:hover {
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+
+            }
+            .card-thumb {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            
+            .card-button{
+                position: absolute;
+                padding: 10px;
+                width: 70%;
+                color:white;
+                text-transform: capitalize;
+                border: none;
+                outline: none;
+                background: blue;
+                border-radius: 5px;
+                margin: 6% 14%;
+                
+            }
+
+     
+          @media screen and (max-width: 700px) {
+               .card{
+                  font-size: 10px;
+                     }
+                        .card-button{
+                           width: 70%;
+                            margin-bottom: 0%;
+                           padding: 5px;
+                           font-size: 10px;
+                     }
+          }
+          
+                 @media only screen and ( min-height: 900px ) {
+               .card{
+                     font-size: 10px;
+                     }
+                     .card-button{
+                           width: 70%;
+                           margin-bottom: 0%;
+                             padding: 5px;
+                             font-size: 10px;
+                     }
+                     }
+            /*
+            ===========================================================================
+                  CSS design for footer container
+            ===========================================================================
+            */
+            /*footer pionts css*/
+            .ul-footer{
+                list-style-type: none;
+                margin: 20px 25px;
+                overflow: hidden;
+                color: black         
+            }       
+
+            .a-footer{
+                color: black;
+                text-decoration: none;
+                margin-bottom: 16px;
+            }
+            /*social media css*/     
+            .fa {
+                padding: 13px;
+                font-size: 24px;
+                width: 20px;
+                text-align: center;
+                text-decoration: none;
+                margin: 5px 2px;
+                border-radius: 50%
+            }
+
+            .fa:hover {
+                opacity: 0.7;
+            }
+
+
+            .fa-facebook {
+                color: blue;
+                margin-left: -19px
+            }
+
+
+            .fa-linkedin {
+                color: blue;
+            }
+
+            .fa-youtube {
+                color: red;
+            }
+            .fa-twitter {
+                color: lightblue;
+            }
+
+            .fa-instagram {
+                color: lightcoral;
+            }
+            .fa-whatsapp {
+                color: green;
+            }
+            
+              @media only screen and ( max-width: 700px ) {
+            .fa {
+                padding: 4px;
+                font-size: 11px;
+                width: 3px;
+                margin: 3px 1px;
+               
+            }
+                     }
+
+
+</style>
+    </head>
+    <body>
+
+          <!-- Menu Bar-->
+        <div class="div1"> 
+
+             <!-- upper Menu. each a tag has an image and span for text-->
+            <div class ="upper-menu">
+                <a href="UserLogin.jsp" target="_blank">
+                    <span class='span-menu'> 
+                        Search</span>
+                    <img  src="images//search.png" class="menu-image" />
+                </a>   
+                <a href="UserLogin.jsp" target="_blank">
+                    <span class='span-menu'> 
+                        Notification</span>
+                    <img  src="images//notification.png" class="menu-image" />
+                </a> 
+
+                <a href="UserLogin.jsp" target="_blank">
+                    <span class='span-menu'> 
+
+                        login | signup</span>
+                    <img  src="images//user.png" class="menu-image" />
+                </a>  
+            </div> 
+
+              <!-- Lower Menu-->
+            <div class ="lower-menu">
+                <ul class = "lower-menu ul">
+                    <li style = "  float: right;" class="li-menu a"><a href="UserLogin.jsp"><h3>Experiences</h3></a></li>
+                    <li style = "  float: right;" class="li-menu a"><a href="UserLogin.jsp"><h3>Destinations</h3></a></li>
+                    <li style = "  float: right;" class="li-menu a"><a href="index.html"><h3>Home</h3></a></li>                        
+                </ul></div> 
+
+        </div>
+             <!-- Menu drop down. -->
+        <nav> <!--An element that defines a set of navigation links-->
+            <ul>
+                <li class="hov">Menu
+                    <img  src="images//menu1.png" class="nav-image"/>    
+                    <ul class="main">
+                        <li><a href="UserLogin.jsp">Book A Flight</a></li>
+                        <li><a href="UserLogin.jsp">Check In</a></li>
+                        <li><a href="UserLogin.jsp">Search A Flight</a></li>
+                        <li><a href="UserLogin.jsp">Manage Booking</a></li>
+                    </ul>
+                </li></ul>
+        </nav>
+              <!-- Logo image at the top of the screen. -->
+        <img  src="images//logo.png" style="border-width:0px; width: 10%; height: 75px; 
+              position:absolute; margin: -6% 2%" />
+
+        <!--START OF THE UPPER PART OF THE PAGE-->
+        <div class="slideshow-container">
+
+            <div class="mySlides fade" style="background-image: url('images\\image1.jpg')">  
+              
+                <!-- form for searching flights. -->
+                <div class="booking-box">
+                    <h2>Your next adventure is just a search away</h2>
+                    <form action="#" method="get">
+                        <div class="user-box">
+                            <input type="text" name="departure" id="departure" required="">
+                            <label>From</label>
+
+                        </div>
+                        <div class="user-box">
+                            <input type="text" name="arrival" id="arrival" required="">
+                            <label>To</label>
+                        </div>
+                        <a href="UserLogin.jsp">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            Continue
+                        </a>
+                    </form>
+                </div>
+
+            </div>
+
+             <!-- second division. -->
+            <div class="mySlides fade" style="background-image: url('images\\image2.jpg')">  
+                <div class="slide2-text" >
+
+                    <h1>The Best Airline In Asia. The One And Only, JWP Airlines</h1>
+                    <img src="images\\Award pic.png" style="width:10%; margin-left: 300px">
+                    <img src="images\\Award pic.png" style="width:10%;">
+                    <img src="images\\Award pic.png" style="width:10%;">
+                    <img src="images\\Award pic.png" style="width:10%;">
+
+
+                </div>
+
+            </div>
+
+              <!-- third division. -->
+            <div class="mySlides fade" style="background-image: url('images\\img33.jpg')">  
+                <div class="slide2-text" >
+
+                    <h1>The Best Airline In Asia. The One And Only, JWP Airlines</h1>
+                    <img src="images\\Award pic.png" style="width:10%; margin-left: 300px">
+                    <img src="images\\Award pic.png" style="width:10%;">
+                    <img src="images\\Award pic.png" style="width:10%;">
+                    <img src="images\\Award pic.png" style="width:10%;">
+
+
+                </div>
+
+            </div>
+            <button style=" margin-top: -20%; position:absolute; border: none; background-image: url('images\\back.jpg');background-size: 100% 100%; width:5%; height:10vh" onclick="plusDivs(-1)">  </button> 
+            <button style="margin-top: -20%; position:absolute; border: none; background-image: url('images\\next.jpg');margin-left: 95%;background-size: 100% 100%; width:5%; height:10vh" onclick="plusDivs(1)">  </button> 
+
+        </div>
+        <br>
+
+        <!--THE THREE DOTS THE UPPER PART OF THE PAGE-->
+        <div style="text-align:center">
+            <span class="dot"></span> 
+            <span class="dot"></span> 
+            <span class="dot"></span> 
+        </div>
+
+
+        <br><br>
+
+        <h1 style ="font-family:'Trebuchet MS', sans-serif; text-align: center; margin-top: 30px">Find Our Offers</h1>
+
+        <!--START OF THE OFFER CONTAINER OF THE PAGE-->
+        <div style ="position: relative;  max-width: 100%; margin: 3% 6%; ">
+            <!--bigger division that contains smaller ones.-->
+            <div style="width: 100%; display: flex; margin-bottom: 5px; position: relative;">
+                  
+                <!--smaller divisions start from here-->
+                  <div class="offer-container" style="background-image: url('images\\singapore.jpg')">
+                  
+                    <div style="position: absolute">
+                        <h2  class="offer-h">Singapore</h2> 
+                        <p  class="offer-p">Economy Lite</p> 
+                        <h1 class="offer-p">RM 139.50</h1>
+                        <button class="offer-button">Buy Now</button>
+
+                    </div>
+                </div>
+                <div class="offer-container" style="background-image: url('images\\sarawak.jpg')">
+
+                    <div style="position: absolute">
+                        <h2  class="offer-h">Sarawak</h2> 
+                        <p class="offer-p" >Economy Lite</p> 
+                        <h1 class="offer-p">RM 100.50</h1>
+                        <button class="offer-button">Buy Now</button>
+
+                    </div>
+                </div>
+
+                 <!--bigger division that contains smaller ones in the second row-->
+                <div class="offer-container" style="background-image: url('images\\newyork.jpeg')">
+
+                    <div style="position: absolute">
+                        <h2  class="offer-h">New York</h2> 
+                        <p class="offer-p">Economy</p> 
+                        <h1  class="offer-p">RM 330.50</h1>
+                        <button class="offer-button">Buy Now</button>
+
+                    </div>
+                </div> 
+            </div>
+            <div style="width: 100%; display: flex; margin-bottom: 5px; position: relative;">
+                <div class="offer-container" style="background-image: url(images/dubia.jpg)">
+                    <div style="position: absolute">
+                        <h2 class="offer-h">Dubia</h2> 
+                        <p  class="offer-p">Economy Lite</p> 
+                        <h1  class="offer-p">RM 190.50</h1>
+                        <button class="offer-button">Buy Now</button>
+
+                    </div>
+
+                </div>
+                <div class="offer-container" style="background-image: url('images\\seoul.jpg')">
+
+                    <div style="position: absolute">
+                        <h2 class="offer-h">seoul</h2> 
+                        <p  class="offer-p">Economy Lite</p> 
+                        <h1  class="offer-p">RM 130.00</h1>
+                        <button class="offer-button">Buy Now</button>
+
+                    </div>
+                </div>
+                <div class="offer-container" style="background-image: url('images\\london.jpg')">
+                    <div style="position: absolute">
+                        <h2  class="offer-h">London</h2> 
+                        <p  class="offer-p">Economy Lite</p> 
+                        <h1  class="offer-p">RM 120.50</h1>
+                        <button class="offer-button">Buy Now</button>
+
+                    </div>
+                </div> 
+            </div>    
+
+        </div>
+
+
+
+        <!--START OF THE FLIGHT PASS DESIGN PART OF THE PAGE-->
+        <h1 align="center" style="margin-top:6% ">Flight Pass</h1>
+
+        <div style ="position: relative;height:70vh; box-sizing: border-box; background-size: 100% 100%; background-image: url('images\\flightpass1.jpg'); margin-bottom: 10%">
+
+        </div>
+
+
+        <!--START OF THE NEWSLETTER PART OF THE PAGE-->
+          <section class="news-container" style="background-image: linear-gradient( rgba(245, 246, 252, 0.52), rgba(255, 255, 255, 255)), url('images\\floral.jpg');"> 
+            <h3 style="font-size: 55px; text-align: center; margin-top: 5px">Newsletter</h3>
+            <p style=" text-align: center; margin-top: -40px"> Be the first to know about our flight deals, holiday packages and more.</p>
+
+            <input type="text" name="email" id="email" placeholder="Email Address" style="height: 24px; width:20%; margin: 5px 0px 0px 20%; border-radius: 5px; border: solid 1px">    
+            <select id="cars" name="cars" style="height: 28px; width:20%; border-radius: 5px; border: solid 1px"> 
+                <option value="" disabled selected>Preffered City Of Departure</option>
+                <option value="Kuala Lumpur">Kuala Lumpur</option>
+                <option value="Singapore">Singapore</option>
+                <option value="Dubia">Dubia</option>
+                <option value="Hargeisa">Hargeisa</option>
+                <option value="New York">New York</option>
+            </select> 
+            <input type="submit" name="submit" value="Subscribe" style="height: 30px; width:15%; border-radius: 5px; border: solid 1px; background-color: blue; color: white">
+
+            <!--buttons for moving the slider left or right.-->
+            <button class="pre-btn"><img src="images/next.png" alt=""></button>
+            <button class="nxt-btn"><img src="images/next.png" alt=""></button>
+            <div class="card-container">
+
+
+                <div class="card">
+                    <div class="card-image">
+                        <img src="images/travelreq.jpg" class="card-thumb" alt="">
+                    </div>
+                    <div style="position: relative">
+                        <h2 style="padding-left:10px">Travel Requirements</h2>
+                        <p style="padding-left:10px; padding-right: 2px; text-spacing: 3px">The list of travel requirements and Vaccinated Travel Lane (VTL) 
+                            info are stated here. As the travel... </p> 
+
+                        <button class="card-button" ><a href="cardContents.jsp" style="color:white; text-decoration: none"> Read More</a></button> </div>
+
+
+                </div>
+                <div class="card">
+                    <div class="card-image">
+                        <img src="images/safetymesures.jpg" class="card-thumb" alt="">
+                    </div>
+                    <div style="position: relative">
+                        <h2 style="padding-left:11px">Safety Measures</h2>
+                        <p style="padding-left:11px; padding-right: 2px; text-spacing: 3px" >Prioritizing the safety and wellbeing of our passengers and employees 
+                            as we usually do, we have unveiled a newly .... </p>
+                        <button class="card-button" ><a href="cardContents.jsp" style="color:white; text-decoration: none"> Read More</a></button>
+                    </div>
+
+                </div>
+
+                <div class="card">
+                    <div class="card-image">
+                        <img src="images/flexibletravel.jpg" class="card-thumb" alt="">
+                    </div>
+                    <div style="position: relative">
+                        <h2 style="padding-left:11px">Flexible Travel</h2>
+                        <p style="padding-left:11px; padding-right: 2px; text-spacing: 3px">If for any reason, Passengers 
+                            are unable to travel on originally scheduled 
+                            travel date, passengers must be. </p>
+                        <button class="card-button" ><a href="cardContents.jsp" style="color:white; text-decoration: none"> Read More</a></button>
+                    </div>
+
+                </div>
+
+                <div class="card">
+                    <div class="card-image">
+                        <img src="images/jwpcom.jpg" class="card-thumb" alt="">
+                    </div>
+                    <div style="position: relative">
+                        <h2 style="padding-left:11px">JWP Comfort</h2>
+                        <p style="padding-left:11px; padding-right: 2px; text-spacing: 3px">Our global cover dubbed JWP 
+                            Comfort is part of the extra security measures we are taking to ensure your health ..... </p>
+                       <button class="card-button" ><a href=".jsp" style="color:white; text-decoration: none"> Read More</a></button>     
+                    </div>
+
+                </div>
+
+                <div class="card">
+                    <div class="card-image">
+                        <img src="images/planyrtrip.jpg" class="card-thumb" alt="">
+                    </div>
+                    <div style="position: relative">
+                        <h2  style="padding-left:11px">Plan Your Trip</h2>
+                        <p style="padding-left:11px; padding-right: 2px; text-spacing: 3px">Our excellent services will allow passengers to plan for their trip. 
+                            Information about extra laggage, car.... </p>
+                       <button class="card-button" ><a href="cardContents.jsp" style="color:white; text-decoration: none"> Read More</a></button>
+                    </div>
+
+                </div>
+
+            </div> 
+        </section>
+
+
+
+
+        <!--START OF THE FOOTER OF THE PAGE-->
+        
+         <!--  tag defines a footer for the website -->
+        <footer style="background-color: #e1e1eb; box-sizing: border-box; width: 100%; position: relative; left: 0; bottom: 0; margin-top: 150px; padding: 0px; margin-bottom: -12px">
+
+             <!--  upper division of the footer -->  
+            <div style="position: relative; box-sizing: border-box; width: 100%; display: flex; "> 
+
+                <div style=" position: relative;  width: 30%; margin-right: 2%; margin-left: 6%"> 
+
+                    <ul class = "ul-footer">
+                        <li><a class= "a-footer" href="#contact">
+                                <h2>About us</h2>
+                            </a></li>
+                        <li style="padding-bottom:10px"><a href="#home" class= "a-footer">Careers</a></li>
+                        <li style="padding-bottom:10px"><a href="#news" class= "a-footer">About us</a></li>
+                        <li style="padding-bottom:10px"><a href="#contact" class= "a-footer">Media</a></li>
+                        <li style="padding-bottom:10px"><a href="#contact" class= "a-footer" >Tender Documents</a></li>
+                    </ul>
+
+                </div>	
+
+                <div style=" position: relative;  width: 30%; margin-right: 5%"> 
+
+                    <ul class = "ul-footer">
+                        <li><a class= "a-footer" href="#contact">  <h2>Information</h2>  </a></li>
+                        <li style="padding-bottom:10px"><a href="#home" class="a-footer">Malaysia Aviation Group</a></li>
+                        <li style="padding-bottom:10px"><a href="#news" class="a-footer">Corporate Governance</a></li>
+                        <li style="padding-bottom:10px"><a href="#contact" class="a-footer">Services at the airport</a></li>
+                        <li style="padding-bottom:10px"><a href="#contact" class="a-footer">Excess and Special Baggage</a></li>
+                        <li style="padding-bottom:10px"><a href="#home" class= "a-footer">Special need Service Request Form</a></li>
+                        <li style="padding-bottom:10px"><a href="#news" class= "a-footer">Flight Simulator</a></li>
+                        <li style="padding-bottom:10px"><a href="#contact" class= "a-footer">Optional Service Charges</a></li>
+                        <li style="padding-bottom:10px"><a href="#contact" class= "a-footer">Terms and conditions of carriage</a></li>
+                    </ul>
+
+
+                </div>	
+                <div style=" position: relative;  width: 30%; margin-right: 5%"> 
+
+                    <ul class = "ul-footer">
+                        <li><a class="a-footer" href="#contact">
+                                <h2>Customer Support</h2>
+                            </a></li>
+                        <li style="padding-bottom:10px"><a href="#home" class="a-footer">Privacy Policy</a></li>
+                        <li style="padding-bottom:10px"><a href="#news" class="a-footer">Website Accessibility</a></li>
+                        <li style="padding-bottom:10px"><a href="#contact" class="a-footer">Frequently Asked Questions</a></li>
+                        <li style="padding-bottom:10px"><a href="#contact" class="a-footer">Customer Feedback</a></li>
+                        <li style="padding-bottom:10px"><a href="#contact" class="a-footer">Call Center Numbers</a></li>
+                        <li style="padding-bottom:10px"><a href="#contact" class="a-footer">Help and Contacts</a></li>
+
+                    </ul>
+
+
+                </div>	                  
+            </div>
+
+            <hr><br>
+              <!--  lower division that contains social media -->
+            <div style="position: relative; box-sizing: border-box; width: 100%; display: flex; "> 
+
+                <div style=" position: relative;  width: 30%; margin-right: 2%; margin-left: 6%"> 
+
+                    <h1 style="margin-bottom: 3px">Subscribe</h1>
+                    <label> Subscribe to our email newsletter to receive updates</label>
+                    <input type="text" name="email" id="email" placeholder="Email Address" style="height: 24px; margin-top: 5px">
+                    <input type="submit" name="submit" value="Subscribe" style="height: 28px">
+                </div>	
+
+                <div style=" position: relative;  width: 30%; margin-right: 2%; margin-left: 6%"> 
+
+                    <h1 style="margin-bottom: 3px;">Get Our App</h1>
+                    Book and manage your flight easily<br><br>
+                    <button style="background-image: url('images\\google play.png'); background-size: 100% 100%; height:7vh; width: 10vw"></button>
+                    <button style="background-image: url('images\\Apple-Store.png'); background-size: 100% 100%; height:7vh; width: 10vw"></button>
+                </div>
+
+                <div style=" position: relative;  width: 30%; margin-right: 2%; margin-left: 6%"> 
+
+                    <h1 style="margin-bottom: 3px;">Social Media</h1>
+                    Connect with us on social media<br>
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="#" class="fa fa-linkedin"></a>
+                    <a href="#" class="fa fa-youtube"></a>
+                    <a href="#" class="fa fa-instagram"></a>
+                    <a href="#" class="fa fa-whatsapp"></a>
+                </div>
+            </div>	
+
+            <br><br><hr><br>
+            <p align='center' style = "color: gray; padding-bottom: 13px"> &copy; Copyright 2022 JWP Airlines. All rights reserved.</p>
+        </footer>
+
+
+
+
+        <!-- JAVA SCRIPT CODE FOR PAGE RESPONSIVENESS-->
+        <script>
+                   
+             var slideIndex = 1;
+            showDivs(slideIndex);
+
+            function plusDivs(n) {
+                showDivs(slideIndex += n);
+            }
+
+            function showDivs(n) {
+                var i;
+                var x = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("dot");
+
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+
+               
+                if (n > x.length) {
+                    slideIndex = 1;
+                }
+                 if (n < 1) {
+                    slideIndex = x.length;
+                }
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                }
+                x[slideIndex - 1].style.display = "block";
+                 // Set the current slide's dot to the "active" class
+                dots[slideIndex - 1].className += " active";
+            }
+            
+            
+            
+          
+                 const cardContainers = document.querySelectorAll('.card-container');
+                 const nxtBtn = document.querySelectorAll('.nxt-btn');
+                 const preBtn = document.querySelectorAll('.pre-btn');
+                 cardContainers.forEach((item, i) => {
+                        let containerDimensions = item.getBoundingClientRect(); // Return the size of an element and its position relative to the viewport
+                        let containerWidth = containerDimensions.width;
+                        nxtBtn[i].addEventListener('click', () => {
+                               item.scrollLeft += containerWidth;
+                                    })
+
+                        preBtn[i].addEventListener('click', () => {
+                                item.scrollLeft -= containerWidth;
+                                   })
+})
+               
+
+        </script>
+
+    </body>
+</html> 
